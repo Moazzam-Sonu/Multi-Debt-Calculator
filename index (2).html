@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Debt Repayment Calculator</title>
+    <style>
+        
+    body {
+ font-family: Arial, sans-serif;
+ background-color: #f4f4f4;
+ margin: 0;
+ padding: 0;
+}
+.grid{
+    margin: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    column-gap: 3rem
+
+}
+.container {
+
+ max-width: 600px;
+ padding: 20px;
+ background-color: rgb(248, 247, 247);
+ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+ border-radius: 5px;
+}
+
+h1,h3 {
+ text-align: center;
+}
+    .form-group {
+ margin-bottom: 20px;
+}
+
+label {
+ display: block;
+ margin-bottom: 5px;
+}
+
+input[type="number"],
+select
+{
+ width: 96%;
+ padding: 10px;
+ border: 1px solid black;
+ border-radius: 5px;
+}
+select{
+    width:100%;
+}
+button {
+ display: block;
+ width: 100%;
+ padding: 10px;
+ color: #fff;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+}
+
+button:hover {
+ background-color: black;
+}
+
+ol li{
+    margin-bottom: 8px;
+}
+</style>
+
+    
+</head>
+<body>
+    <div class="grid">
+    <div class="container">
+        <h1>Debt Calculator</h1>
+        <div class="form-group">
+            <label>Debt Type:</label>
+            <select id="debtType" placeholder="Chose Type of Debt">
+                <option value="" disabled selected hidden>Chose Type of Debt</option>
+                <option value="Auto Loan">Auto Loan</option>
+                <option value="Student Loan">Student Loan</option>
+                <option value="Debt Card Loan">Debt Card Loan</option>
+                <option value="House Loan">House Loan</option>
+                <option value="others">others</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Principal Amount:</label>
+            <input type="number" id="principal" placeholder="Enter principal amount">
+        </div>
+        
+       <div class="form-group">
+        <label>Annual Interest Rate (%):</label>
+        <input type="number" id="rate" placeholder="Enter annual interest rate">
+       </div>
+        
+      <div class="form-group">
+          <label>Monthly Payment:</label>
+          <input type="number" id="payment" placeholder="Enter monthly payment">
+      </div>
+
+        <button id="calculateButton" onclick="addDebt()">Add Debt</button>
+    </div>
+ <div class="container">
+    <h1>Results Here</h1>
+ <div class="debt">
+    <h3>Debts Detail Bellow:</h3>
+    <ol  type="1" id="debtList"></ol>
+ </div>
+    <hr>
+    <div id="result">
+        <h3>Repayment Summary:</h3>
+        <p>Total Months to Pay Off All Debt: <span id="totalMonths"></span></p>
+        <p>Total Interest Paid: <span id="totalInterestPaid"></span></p>
+        <p>Total Paid: <span id="totalPaid"></span></p>
+    </div>
+ </div>
+</div>  
+
+    <script src="calculator.js"></script>
+</body>
+</html>
